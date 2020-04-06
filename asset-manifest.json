@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/szulcus-portfolio/static/css/main.6501c31d.chunk.css",
-    "main.js": "/szulcus-portfolio/static/js/main.597710f4.chunk.js",
-    "main.js.map": "/szulcus-portfolio/static/js/main.597710f4.chunk.js.map",
-    "runtime-main.js": "/szulcus-portfolio/static/js/runtime-main.c407b626.js",
-    "runtime-main.js.map": "/szulcus-portfolio/static/js/runtime-main.c407b626.js.map",
-    "static/js/2.f565c7d6.chunk.js": "/szulcus-portfolio/static/js/2.f565c7d6.chunk.js",
-    "static/js/2.f565c7d6.chunk.js.map": "/szulcus-portfolio/static/js/2.f565c7d6.chunk.js.map",
-    "index.html": "/szulcus-portfolio/index.html",
-    "precache-manifest.b1da1ad671f21b64dbef266c27683e13.js": "/szulcus-portfolio/precache-manifest.b1da1ad671f21b64dbef266c27683e13.js",
-    "service-worker.js": "/szulcus-portfolio/service-worker.js",
-    "static/css/main.6501c31d.chunk.css.map": "/szulcus-portfolio/static/css/main.6501c31d.chunk.css.map",
-    "static/js/2.f565c7d6.chunk.js.LICENSE.txt": "/szulcus-portfolio/static/js/2.f565c7d6.chunk.js.LICENSE.txt",
-    "static/media/avatar.jpg": "/szulcus-portfolio/static/media/avatar.b7ad6d08.jpg",
-    "static/media/easycalc.png": "/szulcus-portfolio/static/media/easycalc.19552b4f.png",
-    "static/media/easymath.png": "/szulcus-portfolio/static/media/easymath.08adfec6.png",
-    "static/media/easyword.png": "/szulcus-portfolio/static/media/easyword.cf05a652.png"
+    "main.css": "/static/css/main.6501c31d.chunk.css",
+    "main.js": "/static/js/main.800c99f7.chunk.js",
+    "main.js.map": "/static/js/main.800c99f7.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9b047ee8.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9b047ee8.js.map",
+    "static/js/2.3d6e4b65.chunk.js": "/static/js/2.3d6e4b65.chunk.js",
+    "static/js/2.3d6e4b65.chunk.js.map": "/static/js/2.3d6e4b65.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.01059e012d9171a7a6c7cfafaac2e5a9.js": "/precache-manifest.01059e012d9171a7a6c7cfafaac2e5a9.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.6501c31d.chunk.css.map": "/static/css/main.6501c31d.chunk.css.map",
+    "static/js/2.3d6e4b65.chunk.js.LICENSE.txt": "/static/js/2.3d6e4b65.chunk.js.LICENSE.txt",
+    "static/media/avatar.jpg": "/static/media/avatar.b7ad6d08.jpg",
+    "static/media/easycalc.png": "/static/media/easycalc.19552b4f.png",
+    "static/media/easymath.png": "/static/media/easymath.08adfec6.png",
+    "static/media/easyword.png": "/static/media/easyword.cf05a652.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.c407b626.js",
-    "static/js/2.f565c7d6.chunk.js",
+    "static/js/runtime-main.9b047ee8.js",
+    "static/js/2.3d6e4b65.chunk.js",
     "static/css/main.6501c31d.chunk.css",
-    "static/js/main.597710f4.chunk.js"
+    "static/js/main.800c99f7.chunk.js"
   ]
 }
