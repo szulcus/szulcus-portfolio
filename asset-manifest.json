@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.38b0261e.chunk.css",
-    "main.js": "/static/js/main.1f22d8c7.chunk.js",
-    "main.js.map": "/static/js/main.1f22d8c7.chunk.js.map",
+    "main.css": "/static/css/main.606e3649.chunk.css",
+    "main.js": "/static/js/main.5806073b.chunk.js",
+    "main.js.map": "/static/js/main.5806073b.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.9b047ee8.js",
     "runtime-main.js.map": "/static/js/runtime-main.9b047ee8.js.map",
-    "static/js/2.7bd8407a.chunk.js": "/static/js/2.7bd8407a.chunk.js",
-    "static/js/2.7bd8407a.chunk.js.map": "/static/js/2.7bd8407a.chunk.js.map",
+    "static/js/2.238bb73c.chunk.js": "/static/js/2.238bb73c.chunk.js",
+    "static/js/2.238bb73c.chunk.js.map": "/static/js/2.238bb73c.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.244317570834ff4cb631ae07d18c3249.js": "/precache-manifest.244317570834ff4cb631ae07d18c3249.js",
+    "precache-manifest.b8c4f17516ad74f6be1336d40440b9dd.js": "/precache-manifest.b8c4f17516ad74f6be1336d40440b9dd.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.38b0261e.chunk.css.map": "/static/css/main.38b0261e.chunk.css.map",
-    "static/js/2.7bd8407a.chunk.js.LICENSE.txt": "/static/js/2.7bd8407a.chunk.js.LICENSE.txt",
+    "static/css/main.606e3649.chunk.css.map": "/static/css/main.606e3649.chunk.css.map",
+    "static/js/2.238bb73c.chunk.js.LICENSE.txt": "/static/js/2.238bb73c.chunk.js.LICENSE.txt",
     "static/media/avatar.jpg": "/static/media/avatar.5c974efb.jpg",
     "static/media/cpp.svg": "/static/media/cpp.5be9bde4.svg",
     "static/media/css.svg": "/static/media/css.5ff73e99.svg",
     "static/media/easycalc.png": "/static/media/easycalc.19552b4f.png",
-    "static/media/easymath.png": "/static/media/easymath.08adfec6.png",
+    "static/media/easyvalue.png": "/static/media/easyvalue.08adfec6.png",
     "static/media/easyword.png": "/static/media/easyword.cf05a652.png",
+    "static/media/epicbrain.png": "/static/media/epicbrain.235a10b5.png",
     "static/media/es6.svg": "/static/media/es6.d5893fcb.svg",
     "static/media/excel.svg": "/static/media/excel.b3874c6f.svg",
     "static/media/firebase.svg": "/static/media/firebase.7f8d489c.svg",
@@ -33,12 +34,13 @@
     "static/media/responsive.svg": "/static/media/responsive.56ebe96a.svg",
     "static/media/sass.svg": "/static/media/sass.b446ca5a.svg",
     "static/media/sc.svg": "/static/media/sc.467745c3.svg",
-    "static/media/scroll.svg": "/static/media/scroll.68f836b8.svg"
+    "static/media/scroll.svg": "/static/media/scroll.68f836b8.svg",
+    "static/media/terminal.svg": "/static/media/terminal.c1d98b87.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.9b047ee8.js",
-    "static/js/2.7bd8407a.chunk.js",
-    "static/css/main.38b0261e.chunk.css",
-    "static/js/main.1f22d8c7.chunk.js"
+    "static/js/2.238bb73c.chunk.js",
+    "static/css/main.606e3649.chunk.css",
+    "static/js/main.5806073b.chunk.js"
   ]
 }
