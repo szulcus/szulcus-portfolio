@@ -1,10 +1,10 @@
 // BASIC
 import React, { Component } from 'react'
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 import ReactHtmlParser from 'react-html-parser';
 // ICONS
 import {FaEye, FaStar, FaUsers, FaLocationArrow} from 'react-icons/fa'
-import {MdFormatQuote} from 'react-icons/md'
+// import {MdFormatQuote} from 'react-icons/md'
 
 const ProjectComponent = styled.div`
 	width: 100%;
@@ -23,6 +23,7 @@ const Browserlink = styled.a`
 `
 const Logo = styled.img`
 	width: 200px;
+	margin: 20px 0;
 	border-radius: 100%;
 	box-shadow: 0 0 30px var(--color-secondary);
 `
@@ -33,6 +34,7 @@ const Stats = styled.div`
 	margin: 30px 0;
 `
 const StatsElement = styled.div`
+	min-width: 100px;
 	display: flex;
 	font-size: 25px;
 `
@@ -93,7 +95,7 @@ class Project extends Component {
 				</Browserlink>
 				<Stats>
 					<StatsElement>
-						<StatsNumber>{this.props.stats.views}</StatsNumber>
+						<StatsNumber>{window.innerWidth <= 500 ? `~${Math.round(Number(this.props.stats.views) / 1000)}K` : this.props.stats.views}</StatsNumber>
 						<StatsIcon color={this.props.name.toLowerCase()}><FaEye /></StatsIcon>
 					</StatsElement>
 					<StatsElement>

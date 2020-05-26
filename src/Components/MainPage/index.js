@@ -5,11 +5,13 @@ import styled, {keyframes, css as style} from 'styled-components'
 import {easyLearnDb, epicGamesDb} from '../../Config/easy-learn'
 // COMPONENTS
 import Project from './components/Project'
+import getContents from './components/getContents'
+import Footer from './components/Footer'
 // ICONS
-import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from 'react-icons/md'
 import {TiArrowSortedDown, TiArrowSortedUp} from 'react-icons/ti'
 // IMAGES
-import logo from '../../Images/logo.png'
+import text from '../../Images/logo/text.png'
+import line from '../../Images/logo/line.png'
 import avatar from '../../Images/avatar.jpg'
 import messenger from '../../Images/messenger.svg'
 import scroll from '../../Images/scroll.svg'
@@ -32,12 +34,13 @@ import es6 from '../../Images/experience/js/es6.svg'
 import nodejs from '../../Images/experience/js/nodejs.svg'
 import npm from '../../Images/experience/js/npm.svg'
 import react from '../../Images/experience/js/react.svg'
-import firebase from '../../Images/experience/js/firebase.svg'
+// FIREBASE
+import firebase from '../../Images/experience/firebase/firebase.svg'
 // PYTHON
 import python from '../../Images/experience/python/python.svg'
 import terminal from '../../Images/experience/python/terminal.svg'
 // OFFICE
-import excel from '../../Images/experience/office/excel.svg'
+import office from '../../Images/experience/office/office.svg'
 // C++
 import cpp from '../../Images/experience/cpp/cpp.svg'
 
@@ -58,22 +61,18 @@ const AppComponent = styled.div`
 	}
 `
 const Welcome = styled.header`
+	width: 100%;
 	min-height: 100vh;
-	height: calc(var(--vh, 1vh) * 100);
-	/* min-height: calc(370px + 45vw); */
+	min-height: calc(var(--vh, 1vh) * 100);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
 	@media (max-height: 650px) and (max-width: 800px) {
 		min-height: 600px;
-		/* min-height: 100vh; */
-		/* background-color: #fff; */
 	}
 	@media (max-height: 650px) and (min-width: 800px) {
 		min-height: 650px;
-		/* min-height: 100vh; */
-		/* background-color: #fff; */
 	}
 	@media (max-width: 400px) {
 		min-height: 100vh;
@@ -82,30 +81,63 @@ const Welcome = styled.header`
 const fade = keyframes`
 	from {
 		opacity: 0;
-		/* transform: scale(0.8) */
+		transform: scale(0.5) rotate(0);
+	}
+	60% {
+		opacity: 1;
+		transform: scale(1.1) rotate(0);
 	}
 	to {
 		opacity: 1;
-		/* transform: scale(1) */
+		transform: scale(1) rotate(0);
+	}
+`
+const flow = keyframes`
+	from {
+		opacity: 0;
+		transform: scaleX(0);
+	}
+	to {
+		opacity: 1;
+		transform: scaleX(1);
 	}
 `
 const Avatar = styled.div`
 	width: 250px;
 	height: 250px;
-	background: url("${props => props.src}") no-repeat center center;
-	background-size: cover;
 	border-radius: 100%;
 	margin: 10px;
-	animation: ${fade} 0.3s ease;
+	overflow: hidden;
+	animation: ${fade} 0.8s ease;
+	transform-origin: bottom;
 	@media (min-width: 800px) {
 		width: 300px;
 		height: 300px;
 	}
 `
-const Logo = styled.img`
+const AvatarImage = styled.img`
 	width: 100%;
+	height: 100%;
+`
+const Logo = styled.div`
+	position: relative;
+	width: 100%;
+	height: calc((100vw - 60px) * 0.44);
 	max-width: 450px;
+	max-height: 200px;
 	margin-bottom: 30px;
+`
+const LogoElement = styled.img`
+	position: absolute;
+	width: 100%;
+	opacity: 0;
+	:nth-child(1) {
+		animation: ${fade} 0.8s both;
+	}
+	:nth-child(2) {
+		transform-origin: right;
+		animation: ${flow} 0.3s 0.5s both
+	}
 `
 const scrollAnimation = keyframes`
 	0% {
@@ -127,7 +159,7 @@ const ScrollDown = styled.img`
 	height: 50px;
 	margin-bottom: 50px;
 	transition: opacity 0.3s ease;
-	animation: ${scrollAnimation} 1s infinite ease-out;
+	animation: ${scrollAnimation} 1s 0.8s infinite ease-out;
 	:hover {
 		cursor: pointer;
 	}
@@ -149,8 +181,8 @@ const Line = styled.hr`
 	width: 100%;
 	max-width: 1000px;
 	border: none;
-	border-top: 4px solid var(--color-main);
-	border-radius: 2px;
+	border-top: 3px solid var(--color-main);
+	border-radius: 3px;
 	margin: 0 0 0px 0;
 `
 const Projects = styled.div`
@@ -159,19 +191,6 @@ const Projects = styled.div`
 	justify-content: center;
 	flex-wrap: wrap;
 `
-const ProjectLink = styled.a`
-	border-radius: 100%;
-	margin: 30px;
-`
-// const Project = styled.img`
-// 	width: 100px;
-// 	height: 100px;
-// 	border-radius: 100%;
-// 	transition: all 0.3s ease;
-// 	:hover {
-// 		box-shadow: 0 0 20px var(--color-primary);
-// 	}
-// `
 const Skills = styled.article`
 	width: 100%;
 	display: flex;
@@ -192,7 +211,6 @@ const Card = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	/* margin: 20px; */
 	padding: 20px;
 	text-align: center;
 	overflow: hidden;
@@ -229,10 +247,21 @@ const LongName = styled.span`
 		display: inline;
 	}
 `
+const Description = styled.div`
+	width: 100%;
+	max-width: 1000px;
+	padding: 20px;
+	font-size: 20px;
+	text-align: center;
+	animation: ${fade} 0.3s ease;
+	transition: all 0.3s ease;
+	@media (min-width: 500px) {
+		margin: 20px 0;
+	}
+`
 const SkillsDescription = styled.div`
 	width: 100%;
 	max-width: 1000px;
-	margin: 0;
 	padding: 0px 20px 20px 20px;
 	font-size: 18px;
 	text-align: center;
@@ -244,48 +273,6 @@ const SkillsDescription = styled.div`
 		margin: 20px 0;
 	}
 `
-const fadeIn = keyframes`
-	from {
-		opacity: 0;
-		transform: scale(0.9)
-	}
-	to {
-		opacity: 1;
-		transform: scale(1);
-	}
-`
-const fadeOut = keyframes`
-	from {
-		opacity: 1;
-		transform: scale(1);
-	}
-	to {
-		opacity: 0;
-		transform: scale(0.9)
-	}
-`
-const ExpImage = styled.img`
-	width: 100px;
-	height: 100px;
-	margin: 50px 0 20px 0;
-	animation: ${fadeIn} 0.3s both;
-	${props =>
-		props.hide &&
-		style`
-			animation: ${fadeOut} 0.3s both;
-		`
-	}
-`
-const ExpDescription = styled.div`
-	width: 100%;
-	animation: ${fadeIn} 0.3s both;
-	${props =>
-		props.hide &&
-		style`
-			animation: ${fadeOut} 0.1s both;
-		`
-	};
-`
 const BrowserLink = styled.a`
 	color: var(--color-main);
 	text-decoration: none;
@@ -294,10 +281,6 @@ const BrowserLink = styled.a`
 	:hover {
 		opacity: 0.5;
 	}
-`
-const Footer = styled.footer`
-	text-align: center;
-	margin-top: 30px;
 `
 const ScrollButton = styled.div`
 	position: absolute;
@@ -330,8 +313,12 @@ class App extends Component {
 	state = {
 		scrollToIndex: 0,
 		scrolled: false,
-		mainExp: {
+		frontendExp: {
 			active: 'html',
+			hide: false
+		},
+		backendExp: {
+			active: 'firebase',
 			hide: false
 		},
 		otherExp: {
@@ -364,50 +351,56 @@ class App extends Component {
 		easyLearnDb.collection('apps').doc('easy-word').onSnapshot(snap => {
 			let allStars = 0;
 			let allOpinions = 0;
-			snap.data().stats.opinions.forEach(({stars}) => {
-				allStars += stars
-				allOpinions += 1
-			})
-			const average = allStars / allOpinions
-			this.setState(prevState => ({
-				easyWordStats: {
-					...prevState.easyWordStats,
-					average: average.toFixed(1),
-					views: snap.data().stats.views.toString()
-				}
-			}));
+			if (snap.data()) {
+				snap.data().stats.opinions.forEach(({stars}) => {
+					allStars += stars
+					allOpinions += 1
+				})
+				const average = allStars / allOpinions
+				this.setState(prevState => ({
+					easyWordStats: {
+						...prevState.easyWordStats,
+						average: average.toFixed(1),
+						views: snap.data().stats.views.toString()
+					}
+				}));
+			}
 		})
 		easyLearnDb.collection('apps').doc('easy-value').onSnapshot(snap => {
 			let allStars = 0;
 			let allOpinions = 0;
-			snap.data().stats.opinions.forEach(({stars}) => {
-				allStars += stars
-				allOpinions += 1
-			})
-			const average = allStars / allOpinions
-			this.setState(prevState => ({
-				easyValueStats: {
-					...prevState.easyWordStats,
-					average: average.toFixed(1),
-					views: snap.data().stats.views.toString()
-				}
-			}));
+			if (snap.data()) {
+				snap.data().stats.opinions.forEach(({stars}) => {
+					allStars += stars
+					allOpinions += 1
+				})
+				const average = allStars / allOpinions
+				this.setState(prevState => ({
+					easyValueStats: {
+						...prevState.easyWordStats,
+						average: average.toFixed(1),
+						views: snap.data().stats.views.toString()
+					}
+				}));
+			}
 		})
 		easyLearnDb.collection('apps').doc('easy-calc').onSnapshot(snap => {
 			let allStars = 0;
 			let allOpinions = 0;
-			Object.values(snap.data().stats.opinions).forEach(({stars}) => {
-				allStars += stars
-				allOpinions += 1
-			})
-			const average = allStars / allOpinions
-			this.setState(prevState => ({
-				easyCalcStats: {
-					...prevState.easyCalcStats,
-					average: average.toFixed(1),
-					views: snap.data().stats.views.toString()
-				}
-			}));
+			if (snap.data()) {
+				Object.values(snap.data().stats.opinions).forEach(({stars}) => {
+					allStars += stars
+					allOpinions += 1
+				})
+				const average = allStars / allOpinions
+				this.setState(prevState => ({
+					easyCalcStats: {
+						...prevState.easyCalcStats,
+						average: average.toFixed(1),
+						views: snap.data().stats.views.toString()
+					}
+				}));
+			}
 		})
 		easyLearnDb.collection('users').onSnapshot(snaps => {
 			let users = 0;
@@ -431,18 +424,20 @@ class App extends Component {
 		epicGamesDb.collection('apps').doc('epic-brain').onSnapshot(snap => {
 			let allStars = 0;
 			let allOpinions = 0;
-			Object.values(snap.data().stats.opinions).forEach(({stars}) => {
-				allStars += stars
-				allOpinions += 1
-			})
-			const average = allStars / allOpinions
-			this.setState(prevState => ({
-				epicBrainStats: {
-					...prevState.epicBrainStats,
-					average: average.toFixed(1),
-					views: snap.data().stats.views.toString()
-				}
-			}));
+			if (snap.data()) {
+				Object.values(snap.data().stats.opinions).forEach(({stars}) => {
+					allStars += stars
+					allOpinions += 1
+				})
+				const average = allStars / allOpinions
+				this.setState(prevState => ({
+					epicBrainStats: {
+						...prevState.epicBrainStats,
+						average: average.toFixed(1),
+						views: snap.data().stats.views.toString()
+					}
+				}));
+			}
 		})
 		epicGamesDb.collection('users').onSnapshot(snaps => {
 			let users = 0;
@@ -488,6 +483,8 @@ class App extends Component {
 		const elementTop1 = elements[0].getBoundingClientRect().top + page.scrollTop
 		const elementTop2 = elements[1].getBoundingClientRect().top + page.scrollTop
 		const elementTop3 = elements[2].getBoundingClientRect().top + page.scrollTop
+		const elementTop4 = elements[3].getBoundingClientRect().top + page.scrollTop
+		const elementTop5 = elements[4].getBoundingClientRect().top + page.scrollTop
 		if (page.scrollTop < elementTop1 && this.state.scrollToIndex !== 0) {
 			this.setState({scrollToIndex: 0})
 		}
@@ -497,7 +494,13 @@ class App extends Component {
 		else if (page.scrollTop >= elementTop2 && page.scrollTop < elementTop3 && this.state.scrollToIndex !== 2) {
 			this.setState({scrollToIndex: 2})
 		}
-		else if (page.scrollTop >= elementTop3) {
+		else if (page.scrollTop >= elementTop3 && page.scrollTop < elementTop4 && this.state.scrollToIndex !== 3) {
+			this.setState({scrollToIndex: 3})
+		}
+		else if (page.scrollTop >= elementTop4 && page.scrollTop < elementTop5 && this.state.scrollToIndex !== 4) {
+			this.setState({scrollToIndex: 4})
+		}
+		else if (page.scrollTop >= elementTop5) {
 			this.setState({scrollToIndex: 'up'})
 		}
 	}
@@ -533,108 +536,76 @@ class App extends Component {
 		}
 	}
 	render() {
-		const contents = {
-			html: <>
-				<ExpImage hide={this.state.mainExp.hide} src={html} />
-				<ExpDescription hide={this.state.mainExp.hide}>Tworzę strony, oraz aplikacje internetowe zgodne z najnowszym standardem HTML5. Tworzone przeze mnie projekty są w pełni semantyczne, a co za tym idzie nowocześniejsze i lepiej współpracują z innymi urządzeniami.</ExpDescription>
-				<ExpImage src={gmail} />
-				<ExpDescription hide={this.state.mainExp.hide}>Mam doświadczenie z tworzeniem automatycznych szablonów e-mail. Swoje usługi zaoferowałem już między firmie <BrowserLink href="https://magicalgoods.com.pl" target="_blank">Magical Goods</BrowserLink>.</ExpDescription>
-			</>,
-			css: <>
-				<ExpImage hide={this.state.mainExp.hide} src={responsive} />
-				<ExpDescription hide={this.state.mainExp.hide}>
-					Wszystkie moje projekty są w pełni responsywne.
-					Podczas ich tworzenia, kieruję się zasadą Mobile First, dzięki czemu korzystanie ze strony jest wygodne na wszystkich urządzeniach, a treść na ekranach słabszych urządzeń ładuje się znacznie szybciej.
-				</ExpDescription>
-				<ExpImage hide={this.state.mainExp.hide} src={noBootstrap} />
-				<ExpDescription hide={this.state.mainExp.hide}>
-					Do każdego klienta podchodzę indywidualnie.
-					Jestem przeciwnikiem korzystania z gotowych frameworków CSS takich jak <BrowserLink href="https://getbootstrap.com" target="_blank">Bootstrap</BrowserLink> czy <BrowserLink href="https://get.foundation" target="_blank">Foundation</BrowserLink>.
-					Uważam, że dopracowany na stronie powinien być każdy szczegół, a zainwestowany czas zwróci się nam z nawiązką.
-				</ExpDescription>
-				<ExpImage hide={this.state.mainExp.hide} src={sass} />
-				<ExpDescription hide={this.state.mainExp.hide}>
-					Czystość kodu to podstawa!
-					Nawet CSS.
-					Dlatego korzystam z preprocesorów takich jak <BrowserLink href="https://sass-lang.com" target="_blank">SCSS, czy SASS</BrowserLink>, aby ewentualne poprawki móc szybko zastosować, a potencjalne przyszłe osoby potrafiły odnaleźć się w kodzie.
-				</ExpDescription>
-				<ExpImage hide={this.state.mainExp.hide} src={sc} />
-				<ExpDescription hide={this.state.mainExp.hide}>
-					Większość styli moich projektów oparte jest na <BrowserLink href="https://styled-components.com">Styled Components</BrowserLink>.
-					Technologia ta daje możliwość dokładniejszego zarządzania elementem i co bardzo sobie cenię - indywidualnego podejścia.
-					Tak jak już wyżej wspomniałem, na stronie lubię mieć dopracowany każdy, nawet najmniejszy szczegół <span role="img" aria-label="happy">😁</span>.
-				</ExpDescription>
-			</>,
-			js: <>
-				<ExpImage hide={this.state.mainExp.hide} src={es6} />
-				<ExpDescription hide={this.state.mainExp.hide}>
-					Moje małe dzieła sztuki staram się tworzyć tak aby były nowoczesne, a kod czytelny.
-					Dlatego korzystam z funkcji JavaScript w standardzie ES6+.
-					Jednocześnie chcę dotrzeć do jak największej liczby odbiorców, dlatego z pomocą takich narzędzi jak <BrowserLink href="https://babeljs.io" target="_blank">Babel</BrowserLink> moje strony obsługiwane są poprawnie przez większość przeglądarek.
-				</ExpDescription>
-				<ExpImage hide={this.state.mainExp.hide} src={nodejs} />
-				<ExpDescription hide={this.state.mainExp.hide}>
-					Potrafię korzystać z podstawowych funkcji platformy <BrowserLink href="" target="_blank">Node.js</BrowserLink>.
-					Dzięki temu potencjał języka JavaScript jestem w stanie wykorzystać nie tylko w przeglądarce, a zastosować go do mnóstwa innych rzeczy, w tym stawiania prostych serwerów i pisania programów.
-				</ExpDescription>
-				<ExpImage hide={this.state.mainExp.hide} src={npm} />
-				<ExpDescription hide={this.state.mainExp.hide}>
-					Mimo, że programowaniem zajmuję się już prawie 3 lata i mogłoby to się wydawać dość sporo, ciągle uczę się czegoś nowego.
-					Ciekawość i ciągłe odkrywanie nowych rzeczy zapewnia mi <BrowserLink href="https://www.npmjs.com" target="_blank">npm</BrowserLink> z ogromną ilością paczek.
-					Z jednej strony ułatwiają mi bardzo pracę, z drugiej zaś stanowią wyzwanie, przez co nie ma czasu na nudę!
-				</ExpDescription>
-				<ExpImage hide={this.state.mainExp.hide} src={react} />
-				<ExpDescription hide={this.state.mainExp.hide}>
-					Zdecydowana większość moich aplikacji napisana jest w <BrowserLink>React</BrowserLink>.
-					Porządek i struktura przy większych projektach jest bardzo ważna.
-					Taką Możliwość daje mi właśnie biblioteka <BrowserLink>React.js</BrowserLink> z którą styczność mam już prawie dwa lata.
-				</ExpDescription>
-				<ExpImage src={firebase} />
-				<ExpDescription>
-					Mam również półroczne doświadczenie z bazami danych w <BrowserLink href="https://firebase.google.com" target="_blank">Firebase</BrowserLink>.
-					Potrafię zrobić proste logowanie, oraz przechowywać i odczytywać dane z bazy.
-					Innymi słowy potrafię zrobić stronę, do której można się zalogować, edytować jej zawartość, oraz przesłać do niej pliki (zdjęcia, wideo itp).
-				</ExpDescription>
-			</>,
-			py: <>
-				<ExpImage hide={this.state.otherExp.hide} src={terminal} />
-				<ExpDescription hide={this.state.otherExp.hide}>
-					Potrafię stworzyć proste programy (głównie w wierszu poleceń).
-					Umiem podzielić kod na komponenty, korzystać z jakichś importowanych paczek, napisać program obiektowo itp.
-				</ExpDescription>
-			</>,
-			cpp: 'C++',
-			office: 'Office'
-		}
+		const contents = getContents(this.state.frontendExp, this.state.backendExp, this.state.otherExp);
 		return (
 				<AppComponent id="page" onScroll={this.check}>
 					<Welcome>
-						<Avatar src={avatar} />
-						<Logo src={logo} />
+						<Avatar>
+							<AvatarImage src={avatar} />
+						</Avatar>
+						<Logo>
+							<LogoElement src={text} />
+							<LogoElement src={line} />
+						</Logo>
 						<ScrollDown src={scroll} onClick={this.scrollDown} />
 					</Welcome>
 					<Content>
 						<Skills>
 							<SectionTitle className="title">
-								<Title>Moje Umiejętności</Title>
+								<Title>O mnie</Title>
 								<Line />
 							</SectionTitle>
-							<Cards id="mainExp">
-								<Card id="html" active={this.state.mainExp.active === 'html'} onClick={this.changeContent}>
+							{/* <Cards id="description">
+								<Card id="html" active={this.state.frontendExp.active === 'html'} onClick={this.changeContent}>
+									<LangLogo src={avatar} />
+									<Lang><LangLetter color="#F16529">H</LangLetter>tml</Lang>
+								</Card>
+							</Cards> */}
+							<Description id="mainSkills">
+								Nazywam się Jakub Schulz.
+								Obecnie ukończyłem liceum i czekam na maturę, a w przyszłości mam w planach studiować jako Front-end Developer w WSB w Gdyni.
+								Programowaniem zajmuję się już od prawie trzech lat, natomiast zainteresowanie tą dziedziną przejawiałem już od dziecka.
+								Myślę, że właśnie dzięki temu tworzenie stron internetowych jest dziś moją największą pasją.
+								Lecz przejdźmy do konkretów.
+								Niżej przedstawiam moje umiejętności:
+							</Description>
+							<SectionTitle className="title">
+								<Title>Frontend</Title>
+								<Line />
+							</SectionTitle>
+							<Cards id="frontendExp">
+								<Card id="html" active={this.state.frontendExp.active === 'html'} onClick={this.changeContent}>
 									<LangLogo src={html} />
 									<Lang><LangLetter color="#F16529">H</LangLetter>tml</Lang>
 								</Card>
-								<Card id="css" active={this.state.mainExp.active === 'css'} onClick={this.changeContent}>
+								<Card id="css" active={this.state.frontendExp.active === 'css'} onClick={this.changeContent}>
 									<LangLogo src={css} />
 									<Lang><LangLetter color="#3C9CD7">C</LangLetter>SS</Lang>
 								</Card>
-								<Card id="js" active={this.state.mainExp.active === 'js'} onClick={this.changeContent}>
+								<Card id="js" active={this.state.frontendExp.active === 'js'} onClick={this.changeContent}>
 									<LangLogo src={js} />
 									<Lang><LangLetter color="#F1BF22">J</LangLetter><LongName>ava</LongName><LangLetter color="#F1BF22">S</LangLetter><LongName>cript</LongName></Lang>
 								</Card>
 							</Cards>
-							<SkillsDescription id="mainSkills">
-								{contents[this.state.mainExp.active]}
+							<SkillsDescription id="frontendSkills">
+								{contents[this.state.frontendExp.active]}
+							</SkillsDescription>
+							<SectionTitle className="title">
+								<Title>Backend</Title>
+								<Line />
+							</SectionTitle>
+							<Cards id="backendExp">
+								<Card id="firebase" active={this.state.backendExp.active === 'firebase'} onClick={this.changeContent}>
+									<LangLogo src={firebase} />
+									<Lang><LangLetter color="#FFCB2B">F</LangLetter>irebase</Lang>
+								</Card>
+								<Card id="nodejs" active={this.state.backendExp.active === 'nodejs'} onClick={this.changeContent}>
+									<LangLogo src={nodejs} />
+									<Lang><LangLetter color="#6cc24a">N</LangLetter>ode.js</Lang>
+								</Card>
+							</Cards>
+							<SkillsDescription id="backendSkills">
+								{contents[this.state.backendExp.active]}
 							</SkillsDescription>
 							<SectionTitle className="title">
 								<Title>Inne</Title>
@@ -645,17 +616,17 @@ class App extends Component {
 									<LangLogo src={python} />
 									<Lang><LangLetter color="#387EB8">P</LangLetter><LangLetter color="#FFE052">y</LangLetter>thon</Lang>
 								</Card>
+								<Card id="office" active={this.state.otherExp.active === 'office'} onClick={this.changeContent}>
+									<LangLogo src={office} />
+									<Lang><LangLetter color="#DC3E15">O</LangLetter>ffice</Lang>
+								</Card>
 								<Card id="cpp" active={this.state.otherExp.active === 'cpp'} onClick={this.changeContent}>
 									<LangLogo src={cpp} />
 									<Lang><LangLetter color="#1B598E">C</LangLetter>++</Lang>
 								</Card>
-								<Card id="office" active={this.state.otherExp.active === 'office'} onClick={this.changeContent}>
-									<LangLogo src={excel} />
-									<Lang><LangLetter color="#107C41">V</LangLetter>BA</Lang>
-								</Card>
 							</Cards>
-							<SkillsDescription>
-							{contents[this.state.otherExp.active]}
+							<SkillsDescription id="otherSkills">
+								{contents[this.state.otherExp.active]}
 							</SkillsDescription>
 						</Skills>
 						<Projects>
@@ -668,8 +639,8 @@ class App extends Component {
 							<Project logo={easycalc} stats={this.state.easyCalcStats} name="EasyCalc" link="https://easycalc.web.app" />
 							<Project logo={epicbrain} stats={this.state.epicBrainStats} name="EpicBrain" link="https://jakub104.github.io/epic-brain/#/" />
 						</Projects>
-						<Footer>&copy; Jakub Schulz 2020</Footer>
 					</Content>
+					<Footer />
 					{this.state.scrolled && <ScrollButton onClick={this.scrollDown}>{this.state.scrollToIndex === 'up' ? <TiArrowSortedUp /> : <TiArrowSortedDown />}</ScrollButton>}
 					{this.state.scrollToIndex === 'up' && <BrowserLink href="https://m.me/szulcus" target="_blank">
 						<Messenger src={messenger} />
