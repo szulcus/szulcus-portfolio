@@ -12,15 +12,19 @@ import sc from '../../../Images/experience/css/sc.svg'
 // JS
 import es6 from '../../../Images/experience/js/es6.svg'
 import nodejs from '../../../Images/experience/js/nodejs.svg'
-import npm from '../../../Images/experience/js/npm.svg'
+import noJQuery from '../../../Images/experience/js/noJQuery.svg'
 import react from '../../../Images/experience/js/react.svg'
 // FIREBASE
-import firebase from '../../../Images/experience/firebase/firebase.svg'
 import db from '../../../Images/experience/firebase/db.svg'
 import au from '../../../Images/experience/firebase/au.svg'
 import st from '../../../Images/experience/firebase/st.svg'
 import cf from '../../../Images/experience/firebase/cf.svg'
 import fh from '../../../Images/experience/firebase/fh.svg'
+// NODEJS
+import npm from '../../../Images/experience/nodejs/npm.svg'
+import express from '../../../Images/experience/nodejs/express.svg'
+import mongodb from '../../../Images/experience/nodejs/mongodb.svg'
+import pug from '../../../Images/experience/nodejs/pug.svg'
 // PYTHON
 import terminal from '../../../Images/experience/python/terminal.svg'
 // OFFICE
@@ -60,6 +64,12 @@ const ExpImage = styled.img`
 			animation: ${fadeOut} 0.3s both;
 		`
 	}
+	${props =>
+		props.radius &&
+		css`
+			border-radius: 10px;
+		`
+	};
 `
 const ExpDescription = styled.div`
 	width: 100%;
@@ -121,7 +131,7 @@ const contents = (frontendExp, backendExp, otherExp) => {
 			</ExpDescription>
 		</>,
 		js: <>
-			<ExpImage hide={frontendExp.hide} src={es6} />
+			<ExpImage hide={frontendExp.hide} src={es6} radius />
 			<ExpDescription hide={frontendExp.hide}>
 				Moje małe dzieła sztuki staram się tworzyć tak, aby były nowoczesne, a kod czytelny.
 				Dlatego korzystam z funkcji JavaScript w standardzie ES6+.
@@ -132,17 +142,17 @@ const contents = (frontendExp, backendExp, otherExp) => {
 				Potrafię korzystać z podstawowych funkcji platformy <BrowserLink href="https://nodejs.org" target="_blank">Node.js</BrowserLink>.
 				Dzięki temu potencjał języka JavaScript jestem w stanie wykorzystać nie tylko w przeglądarce, lecz także zastosować go do mnóstwa innych rzeczy, w tym stawiania prostych serwerów i pisania programów.
 			</ExpDescription>
-			<ExpImage hide={frontendExp.hide} src={npm} />
-			<ExpDescription hide={frontendExp.hide}>
-				Mimo, że programowaniem zajmuję się już prawie 3 lata i mogłoby to się wydawać dość sporo, ciągle uczę się czegoś nowego.
-				Ciekawość i ciągłe odkrywanie nowych rzeczy zapewnia mi <BrowserLink href="https://www.npmjs.com" target="_blank">npm</BrowserLink> z ogromną ilością paczek.
-				Z jednej strony ułatwiają mi bardzo pracę, z drugiej zaś stanowią wyzwanie, przez co nie mam czasu na nudę!
-			</ExpDescription>
 			<ExpImage hide={frontendExp.hide} src={react} />
 			<ExpDescription hide={frontendExp.hide}>
 				Zdecydowana większość moich aplikacji napisana jest w <BrowserLink href="https://pl.reactjs.org" target="_blank">React</BrowserLink>.
 				Porządek i struktura przy większych projektach jest bardzo ważna.
 				Taką Możliwość daje mi właśnie biblioteka <BrowserLink href="https://pl.reactjs.org" target="_blank">React.js</BrowserLink> z którą styczność mam już prawie dwa lata.
+			</ExpDescription>
+			<ExpImage hide={frontendExp.hide} src={noJQuery} />
+			<ExpDescription hide={frontendExp.hide}>
+				Nie "ułatwiam" sobie pisania kodu przestarzałymi bibliotekami.
+				Stawiam przewde wszystkim na nowoczesność i szybkość działania.
+				Dlatego też nie używam biblioteki <BrowserLink href="https://jquery.com" target="_blank">jQuery</BrowserLink>, a bardziej staram się zagłębiać w świat czystego JavaScript'u.
 			</ExpDescription>
 		</>,
 		firebase: <>
@@ -185,10 +195,28 @@ const contents = (frontendExp, backendExp, otherExp) => {
 			
 		</>,
 		nodejs: <>
-			<ExpImage hide={backendExp.hide} src={terminal} />
+			<ExpImage hide={backendExp.hide} src={npm} />
 			<ExpDescription hide={backendExp.hide}>
-				W języku <BrowserLink href="https://www.python.org" target="_blank">Python</BrowserLink> potrafię stworzyć proste programy (głównie w wierszu poleceń).
-				Umiem podzielić kod na komponenty i funkcje, odczytywać dane z pliku tekstowego i zapisywać je, korzystać z jakichś importowanych paczek, napisać program obiektowo itp.
+				Mimo, że programowaniem zajmuję się już prawie 3 lata i mogłoby to się wydawać dość sporo, ciągle uczę się czegoś nowego.
+				Ciekawość i ciągłe odkrywanie nowych rzeczy zapewnia mi <BrowserLink href="https://www.npmjs.com" target="_blank">npm</BrowserLink> (Node Package manager) z ogromną ilością paczek.
+				Potrafię posługiwac się dokumentacją, instalować konkretne wersje paczek, jak i tworzyć własne.
+				Z jednej strony ułatwiaja mi to bardzo pracę, z drugiej zaś stanowi wyzwanie, przez co nie mam czasu na nudę!
+			</ExpDescription>
+			<ExpImage hide={backendExp.hide} src={mongodb} />
+			<ExpDescription hide={backendExp.hide}>
+				Potrafię posługiwać się <BrowserLink href="https://mansfeld.pl/bazy-danych/bazy-danych-nosql-zalety-wady" target="_blank">nierelacyjną</BrowserLink> bazą danych <BrowserLink href="https://www.mongodb.com" target="_blank">MongoDB</BrowserLink>.
+				Umiem zapisywać, edytować i usuwać dane w bazie, oraz tworzyć warunki.
+			</ExpDescription>
+			<ExpImage hide={backendExp.hide} src={express} />
+			<ExpDescription hide={backendExp.hide}>
+				Znam podstawy frameworku <BrowserLink href="https://expressjs.com" target="_blank">Express.js</BrowserLink>, dzięki czemu jestem w stanie stworzyć prosty serwer.
+				Potrawię stworzyć tzw. routing (podstrony) aplikacji, zintegrować ją z różnymi silnikami do generowania widoków itp.
+				Póki co cały czas uczę się tej technologii i większość swojej wiedzy posiadam z <BrowserLink href="https://www.udemy.com/course/nodejs-master-class" target="_blank">kursu</BrowserLink> Mosh'a Hamedani na <BrowserLink href="https://www.udemy.com" target="_blank">Udemy</BrowserLink>.
+			</ExpDescription>
+			<ExpImage hide={backendExp.hide} src={pug} />
+			<ExpDescription hide={backendExp.hide}>
+				Jednym z generatorów widoku o których wspomniałem wcześniej jest <BrowserLink href="https://www.udemy.com/course/nodejs-master-class" target="_blank">Pug.js</BrowserLink>.
+				To technologia, która pozwala mi z jednej strony na stworzenie widoku strony, z drugiej zaś pozwala na pisanie czystszego kodu.
 			</ExpDescription>
 		</>,
 		py: <>

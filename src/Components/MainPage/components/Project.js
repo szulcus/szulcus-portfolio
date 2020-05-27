@@ -36,6 +36,7 @@ const Stats = styled.div`
 const StatsElement = styled.div`
 	min-width: 100px;
 	display: flex;
+	justify-content: center;
 	font-size: 25px;
 `
 const StatsNumber = styled.span`

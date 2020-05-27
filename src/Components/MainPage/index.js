@@ -21,24 +21,16 @@ import easyvalue from '../../Images/projects/easyvalue.png'
 import epicbrain from '../../Images/projects/epicbrain.png'
 // HTML
 import html from '../../Images/experience/html/html.svg'
-import gmail from '../../Images/experience/html/gmail.svg'
 // CSS
 import css from '../../Images/experience/css/css.svg'
-import responsive from '../../Images/experience/css/responsive.svg'
-import noBootstrap from '../../Images/experience/css/noBootstrap.svg'
-import sass from '../../Images/experience/css/sass.svg'
-import sc from '../../Images/experience/css/sc.svg'
 // JS
 import js from '../../Images/experience/js/js.svg'
-import es6 from '../../Images/experience/js/es6.svg'
+// NODEJS
 import nodejs from '../../Images/experience/js/nodejs.svg'
-import npm from '../../Images/experience/js/npm.svg'
-import react from '../../Images/experience/js/react.svg'
 // FIREBASE
 import firebase from '../../Images/experience/firebase/firebase.svg'
 // PYTHON
 import python from '../../Images/experience/python/python.svg'
-import terminal from '../../Images/experience/python/terminal.svg'
 // OFFICE
 import office from '../../Images/experience/office/office.svg'
 // C++
@@ -229,9 +221,9 @@ const Card = styled.div`
 `
 const LangLogo = styled.img`
 	display: block;
-	width: 80px;
+	height: 80px;
 	@media (min-width: 500px) {
-		width: 100px;
+		height: 100px;
 	}
 `
 const Lang = styled.strong`
@@ -563,11 +555,10 @@ class App extends Component {
 							</Cards> */}
 							<Description id="mainSkills">
 								Nazywam się Jakub Schulz.
-								Obecnie ukończyłem liceum i czekam na maturę, a w przyszłości mam w planach studiować jako Front-end Developer w WSB w Gdyni.
-								Programowaniem zajmuję się już od prawie trzech lat, natomiast zainteresowanie tą dziedziną przejawiałem już od dziecka.
-								Myślę, że właśnie dzięki temu tworzenie stron internetowych jest dziś moją największą pasją.
-								Lecz przejdźmy do konkretów.
-								Niżej przedstawiam moje umiejętności:
+								Obecnie ukończyłem liceum i czekam na maturę.
+								W planach mam studia jako Front-end Developer w WSB w Gdyni.
+								Programowaniem zajmuję się już od prawie trzech lat, a tworzenie stron internetowych jest dziś moją największą pasją.
+								Niżej prezentuję swoje umiejętności:
 							</Description>
 							<SectionTitle className="title">
 								<Title>Frontend</Title>
