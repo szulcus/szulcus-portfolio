@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "67e08835870b288ceeb07a6f5cc74565",
+    "revision": "e5060e1e96b14a4cf57881bebea82855",
     "url": "/index.html"
   },
   {
-    "revision": "e918e40ba969cc674123",
+    "revision": "066636af65c6814bf2dc",
     "url": "/static/css/main.606e3649.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.70d865ba.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e918e40ba969cc674123",
-    "url": "/static/js/main.3c7a362d.chunk.js"
+    "revision": "066636af65c6814bf2dc",
+    "url": "/static/js/main.5864b335.chunk.js"
   },
   {
     "revision": "ae5e19a8f56d350e0839",
@@ -28,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/au.c05388bb.svg"
   },
   {
-    "revision": "994d2da45348d67aa6881b2f221b04ca",
-    "url": "/static/media/avatar.994d2da4.jpg"
+    "revision": "13cfc00aec651f8f600f86112ee681e2",
+    "url": "/static/media/avatar.13cfc00a.jp2"
   },
   {
     "revision": "d290071921bf0e1cd396eb09f5e01b5d",
@@ -48,20 +48,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/db.20a63a41.svg"
   },
   {
-    "revision": "19552b4f783c3a984f112b58cef4df82",
-    "url": "/static/media/easycalc.19552b4f.png"
+    "revision": "aeb601a74188a039659d515c4b66ab8c",
+    "url": "/static/media/easycalc.aeb601a7.jp2"
   },
   {
-    "revision": "08adfec67aab6e7764b839ce99ac6ab0",
-    "url": "/static/media/easyvalue.08adfec6.png"
+    "revision": "043a289f42747c3b0d0fd31da0edeac7",
+    "url": "/static/media/easyvalue.043a289f.jp2"
   },
   {
-    "revision": "cf05a6523d09059a358283eb074ab125",
-    "url": "/static/media/easyword.cf05a652.png"
+    "revision": "8049b13783f2a7927b7c3a70a9708559",
+    "url": "/static/media/easyword.8049b137.jp2"
   },
   {
-    "revision": "235a10b59f5b669da18a64ca3d29c9bb",
-    "url": "/static/media/epicbrain.235a10b5.png"
+    "revision": "5abe842ba254c1e72543c6faa0e4d656",
+    "url": "/static/media/epicbrain.5abe842b.jp2"
   },
   {
     "revision": "d5893fcb1ab18dcae04434f88dcfc573",
