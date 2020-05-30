@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e5060e1e96b14a4cf57881bebea82855",
+    "revision": "3bfe216676ae98d07768479006a5d34c",
     "url": "/index.html"
   },
   {
-    "revision": "066636af65c6814bf2dc",
+    "revision": "01687ee94c38fbc229de",
     "url": "/static/css/main.606e3649.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.70d865ba.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "066636af65c6814bf2dc",
-    "url": "/static/js/main.5864b335.chunk.js"
+    "revision": "01687ee94c38fbc229de",
+    "url": "/static/js/main.c79ee568.chunk.js"
   },
   {
     "revision": "ae5e19a8f56d350e0839",
@@ -28,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/au.c05388bb.svg"
   },
   {
-    "revision": "13cfc00aec651f8f600f86112ee681e2",
-    "url": "/static/media/avatar.13cfc00a.jp2"
+    "revision": "2af50514c6d9aadb37d7efeff37a0743",
+    "url": "/static/media/avatar.2af50514.jpg"
   },
   {
     "revision": "d290071921bf0e1cd396eb09f5e01b5d",
@@ -48,20 +48,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/db.20a63a41.svg"
   },
   {
-    "revision": "aeb601a74188a039659d515c4b66ab8c",
-    "url": "/static/media/easycalc.aeb601a7.jp2"
-  },
-  {
-    "revision": "043a289f42747c3b0d0fd31da0edeac7",
-    "url": "/static/media/easyvalue.043a289f.jp2"
-  },
-  {
-    "revision": "8049b13783f2a7927b7c3a70a9708559",
-    "url": "/static/media/easyword.8049b137.jp2"
-  },
-  {
-    "revision": "5abe842ba254c1e72543c6faa0e4d656",
-    "url": "/static/media/epicbrain.5abe842b.jp2"
+    "revision": "ffb736d016da5430a946ea38d750c370",
+    "url": "/static/media/easyword.ffb736d0.png"
   },
   {
     "revision": "d5893fcb1ab18dcae04434f88dcfc573",

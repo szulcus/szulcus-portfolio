@@ -1,27 +1,24 @@
 {
   "files": {
     "main.css": "/static/css/main.606e3649.chunk.css",
-    "main.js": "/static/js/main.5864b335.chunk.js",
-    "main.js.map": "/static/js/main.5864b335.chunk.js.map",
+    "main.js": "/static/js/main.c79ee568.chunk.js",
+    "main.js.map": "/static/js/main.c79ee568.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.9b047ee8.js",
     "runtime-main.js.map": "/static/js/runtime-main.9b047ee8.js.map",
     "static/js/2.70d865ba.chunk.js": "/static/js/2.70d865ba.chunk.js",
     "static/js/2.70d865ba.chunk.js.map": "/static/js/2.70d865ba.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.694d1ea1ac9227eb25ded7956fb99148.js": "/precache-manifest.694d1ea1ac9227eb25ded7956fb99148.js",
+    "precache-manifest.429fb50061dcf48e98f2ebd62c169096.js": "/precache-manifest.429fb50061dcf48e98f2ebd62c169096.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.606e3649.chunk.css.map": "/static/css/main.606e3649.chunk.css.map",
     "static/js/2.70d865ba.chunk.js.LICENSE.txt": "/static/js/2.70d865ba.chunk.js.LICENSE.txt",
     "static/media/au.svg": "/static/media/au.c05388bb.svg",
-    "static/media/avatar.jp2": "/static/media/avatar.13cfc00a.jp2",
+    "static/media/avatar.jpg": "/static/media/avatar.2af50514.jpg",
     "static/media/cf.svg": "/static/media/cf.d2900719.svg",
     "static/media/cpp.svg": "/static/media/cpp.5be9bde4.svg",
     "static/media/css.svg": "/static/media/css.5ff73e99.svg",
     "static/media/db.svg": "/static/media/db.20a63a41.svg",
-    "static/media/easycalc.jp2": "/static/media/easycalc.aeb601a7.jp2",
-    "static/media/easyvalue.jp2": "/static/media/easyvalue.043a289f.jp2",
-    "static/media/easyword.jp2": "/static/media/easyword.8049b137.jp2",
-    "static/media/epicbrain.jp2": "/static/media/epicbrain.5abe842b.jp2",
+    "static/media/easyword.png": "/static/media/easyword.ffb736d0.png",
     "static/media/es6.svg": "/static/media/es6.d5893fcb.svg",
     "static/media/excel.svg": "/static/media/excel.b3874c6f.svg",
     "static/media/express.svg": "/static/media/express.0220564a.svg",
@@ -53,6 +50,6 @@
     "static/js/runtime-main.9b047ee8.js",
     "static/js/2.70d865ba.chunk.js",
     "static/css/main.606e3649.chunk.css",
-    "static/js/main.5864b335.chunk.js"
+    "static/js/main.c79ee568.chunk.js"
   ]
 }
