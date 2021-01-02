@@ -19,6 +19,8 @@ import easyword from '../../Images/projects/easyword.png'
 import easycalc from '../../Images/projects/easycalc.png'
 import easyvalue from '../../Images/projects/easyvalue.png'
 import epicbrain from '../../Images/projects/epicbrain.png'
+// FILES
+import cvFile from './cv.pdf'
 // HTML
 import html from '../../Images/experience/html/html.svg'
 // CSS
@@ -46,7 +48,7 @@ const AppComponent = styled.div`
 	padding: 30px;
 	overflow-y: scroll;
 	::-webkit-scrollbar {
-		width: 1px;
+		width: 5px;
 	}
 	::-webkit-scrollbar-thumb {
 		background-color: var(--color-main);
@@ -249,6 +251,17 @@ const Description = styled.div`
 	transition: all 0.3s ease;
 	@media (min-width: 500px) {
 		margin: 20px 0;
+	}
+`
+const Download = styled.a`
+	text-decoration: none;
+	color: var(--color-main);
+	font-weight: bold;
+	@media (hover: hover) {
+		transition: all 0.2s ease;
+		:hover {
+			opacity: 0.7;
+		}
 	}
 `
 const SkillsDescription = styled.div`
@@ -477,6 +490,7 @@ class App extends Component {
 		const elementTop3 = elements[2].getBoundingClientRect().top + page.scrollTop
 		const elementTop4 = elements[3].getBoundingClientRect().top + page.scrollTop
 		const elementTop5 = elements[4].getBoundingClientRect().top + page.scrollTop
+		const elementTop6 = elements[5].getBoundingClientRect().top + page.scrollTop
 		if (page.scrollTop < elementTop1 && this.state.scrollToIndex !== 0) {
 			this.setState({scrollToIndex: 0})
 		}
@@ -492,7 +506,10 @@ class App extends Component {
 		else if (page.scrollTop >= elementTop4 && page.scrollTop < elementTop5 && this.state.scrollToIndex !== 4) {
 			this.setState({scrollToIndex: 4})
 		}
-		else if (page.scrollTop >= elementTop5) {
+		else if (page.scrollTop >= elementTop5 && page.scrollTop < elementTop6 && this.state.scrollToIndex !== 5) {
+			this.setState({scrollToIndex: 5})
+		}
+		else if (page.scrollTop >= elementTop6) {
 			this.setState({scrollToIndex: 'up'})
 		}
 	}
@@ -533,13 +550,13 @@ class App extends Component {
 				<AppComponent id="page" onScroll={this.check}>
 					<Welcome>
 						<Avatar>
-							<AvatarImage src={avatar} />
+							<AvatarImage src={avatar} alt="avatar" />
 						</Avatar>
 						<Logo>
-							<LogoElement src={text} />
-							<LogoElement src={line} />
+							<LogoElement src={text} alt="text" />
+							<LogoElement src={line} alt="line" />
 						</Logo>
-						<ScrollDown src={scroll} onClick={this.scrollDown} />
+						<ScrollDown src={scroll} alt="alt" onClick={this.scrollDown} />
 					</Welcome>
 					<Content>
 						<Skills>
@@ -547,17 +564,11 @@ class App extends Component {
 								<Title>O mnie</Title>
 								<Line />
 							</SectionTitle>
-							{/* <Cards id="description">
-								<Card id="html" active={this.state.frontendExp.active === 'html'} onClick={this.changeContent}>
-									<LangLogo src={avatar} />
-									<Lang><LangLetter color="#F16529">H</LangLetter>tml</Lang>
-								</Card>
-							</Cards> */}
-							<Description id="mainSkills">
+							<Description>
 								Nazywam się Jakub Schulz.
 								Obecnie ukończyłem liceum i czekam na maturę.
 								W planach mam studia jako Front-end Developer w WSB w Gdyni.
-								Programowaniem zajmuję się już od prawie trzech lat, a tworzenie stron internetowych jest dziś moją największą pasją.
+								Programowaniem zajmuję się już od prawie trzech lat, a tworzenie stron internetowych jest moją największą pasją.
 								Niżej prezentuję swoje umiejętności:
 							</Description>
 							<SectionTitle className="title">
@@ -566,15 +577,15 @@ class App extends Component {
 							</SectionTitle>
 							<Cards id="frontendExp">
 								<Card id="html" active={this.state.frontendExp.active === 'html'} onClick={this.changeContent}>
-									<LangLogo src={html} />
+									<LangLogo src={html} alt="html" />
 									<Lang><LangLetter color="#F16529">H</LangLetter>tml</Lang>
 								</Card>
 								<Card id="css" active={this.state.frontendExp.active === 'css'} onClick={this.changeContent}>
-									<LangLogo src={css} />
+									<LangLogo src={css} alt="css" />
 									<Lang><LangLetter color="#3C9CD7">C</LangLetter>SS</Lang>
 								</Card>
 								<Card id="js" active={this.state.frontendExp.active === 'js'} onClick={this.changeContent}>
-									<LangLogo src={js} />
+									<LangLogo src={js} alt="js" />
 									<Lang><LangLetter color="#F1BF22">J</LangLetter><LongName>ava</LongName><LangLetter color="#F1BF22">S</LangLetter><LongName>cript</LongName></Lang>
 								</Card>
 							</Cards>
@@ -587,11 +598,11 @@ class App extends Component {
 							</SectionTitle>
 							<Cards id="backendExp">
 								<Card id="firebase" active={this.state.backendExp.active === 'firebase'} onClick={this.changeContent}>
-									<LangLogo src={firebase} />
+									<LangLogo src={firebase} alt="firebase" />
 									<Lang><LangLetter color="#FFCB2B">F</LangLetter>irebase</Lang>
 								</Card>
 								<Card id="nodejs" active={this.state.backendExp.active === 'nodejs'} onClick={this.changeContent}>
-									<LangLogo src={nodejs} />
+									<LangLogo src={nodejs} alt="nodejs" />
 									<Lang><LangLetter color="#6cc24a">N</LangLetter>ode.js</Lang>
 								</Card>
 							</Cards>
@@ -604,21 +615,34 @@ class App extends Component {
 							</SectionTitle>
 							<Cards id="otherExp">
 								<Card id="py" active={this.state.otherExp.active === 'py'} onClick={this.changeContent}>
-									<LangLogo src={python} />
+									<LangLogo src={python} alt="python" />
 									<Lang><LangLetter color="#387EB8">P</LangLetter><LangLetter color="#FFE052">y</LangLetter>thon</Lang>
 								</Card>
 								<Card id="office" active={this.state.otherExp.active === 'office'} onClick={this.changeContent}>
-									<LangLogo src={office} />
+									<LangLogo src={office} alt="office" />
 									<Lang><LangLetter color="#DC3E15">O</LangLetter>ffice</Lang>
 								</Card>
 								<Card id="cpp" active={this.state.otherExp.active === 'cpp'} onClick={this.changeContent}>
-									<LangLogo src={cpp} />
+									<LangLogo src={cpp} alt="cpp" />
 									<Lang><LangLetter color="#1B598E">C</LangLetter>++</Lang>
 								</Card>
 							</Cards>
-							<SkillsDescription id="otherSkills">
+							<SkillsDescription id="endSkills">
 								{contents[this.state.otherExp.active]}
 							</SkillsDescription>
+							<SectionTitle className="title">
+								<Title>Podsumowanie</Title>
+								<Line />
+							</SectionTitle>
+							<Description>
+								Dlaczego jestem dobrym programistą?
+								Ciąglę uczę się nowych rzeczy i bardzo zależy mi na tym aby strony, które tworzę były jak najbardziej nowoczesne.
+								Jestem towarzyski i ciekawy świata.
+								Uwielbiam rozmawiać z ludźmi, a na stronie ważny jest dla mnie każdy, nawet najmniejszy szczegół.
+								Jeśli masz czas, zerknij proszę na moje projekty, abyś "na żywo" mógł się przekonać o mojej twórczości.
+								Zainteresowałem Cię?
+								W takim razie zapraszam do kontaktu, oraz pobrania mojego <Download href={cvFile} rel="noopener noreferrer" download="CV - Jakub Schulz">CV</Download>!
+							</Description>
 						</Skills>
 						<Projects>
 							<SectionTitle className="title">
@@ -626,15 +650,15 @@ class App extends Component {
 								<Line />
 							</SectionTitle>
 							<Project logo={easyword} stats={this.state.easyWordStats} name="EasyWord" link="https://easyword123.pl" />
-							<Project logo={easyvalue} stats={this.state.easyValueStats} name="EasyValue" link="https://easyvalue.web.app" />
-							<Project logo={easycalc} stats={this.state.easyCalcStats} name="EasyCalc" link="https://easycalc.web.app" />
+							<Project logo={easyvalue} stats={this.state.easyValueStats} name="EasyValue" link="https://jakub104.github.io/easy-value/#/" />
+							<Project logo={easycalc} stats={this.state.easyCalcStats} name="EasyCalc" link="https://jakub104.github.io/easy-calc/#/" />
 							<Project logo={epicbrain} stats={this.state.epicBrainStats} name="EpicBrain" link="https://jakub104.github.io/epic-brain/#/" />
 						</Projects>
 					</Content>
 					<Footer />
 					{this.state.scrolled && <ScrollButton onClick={this.scrollDown}>{this.state.scrollToIndex === 'up' ? <TiArrowSortedUp /> : <TiArrowSortedDown />}</ScrollButton>}
-					{this.state.scrollToIndex === 'up' && <BrowserLink href="https://m.me/szulcus" target="_blank">
-						<Messenger src={messenger} />
+					{this.state.scrollToIndex === 'up' && <BrowserLink href="https://m.me/szulcus" rel="noopener noreferrer" target="_blank">
+						<Messenger src={messenger} alt="messenger" />
 					</BrowserLink>}
 				</AppComponent>
 		);

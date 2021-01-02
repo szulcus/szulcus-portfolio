@@ -92,7 +92,7 @@ class Project extends Component {
 					{ReactHtmlParser(this.props.name.replace(/[A-Z]/g, x => `<span style="color: var(--color-${this.props.name})">${x}</span>`))}
 				</Title>
 				<Browserlink href={this.props.link} rel="noopener noreferrer" target="_blank">
-					<Logo src={this.props.logo} />
+					<Logo src={this.props.logo} alt={this.props.name} />
 				</Browserlink>
 				<Stats>
 					<StatsElement>

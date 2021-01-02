@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 // IMAGES
-import avatar from './Images/avatar.jpg'
+import avatar from './Images/avatar.jp2'
 import easyword from './Images/projects/easyword.png'
 import easycalc from './Images/projects/easycalc.png'
 import easymath from './Images/projects/easymath.png'
@@ -128,11 +128,6 @@ const Skills = styled.div`
 	display: flex;
 	justify-content: space-around;
 `
-const SkillsDescription = styled.div`
-	
-	margin: 30px 0;
-	padding: 30px;
-`
 
 class App extends Component {
 	render() {
@@ -189,9 +184,6 @@ class App extends Component {
 						<Lang>JS</Lang>
 					</Card>
 				</Skills>
-				<SkillsDescription>
-					lorem
-				</SkillsDescription>
 			</AppComponent>
 		);
 	}
